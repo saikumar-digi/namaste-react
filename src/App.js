@@ -5,12 +5,6 @@ import Body from "./components/Body";
 // const heading = React.createElement("h1" ,{id:"heading"} , "this is react element")
 
 
-
-
-
-
-
-
 const AppLayout = () => {
   return (
     <div className="app">

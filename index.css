@@ -53,3 +53,7 @@
     cursor:pointer;
     padding:0px 20px;
 }
+
+.filter{
+    display: flex;
+}

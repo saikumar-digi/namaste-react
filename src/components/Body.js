@@ -3,8 +3,8 @@ import resData from "../utils/mockData";
 import RestaurantCard from "./RestaurantCard";
 
 const Body = () => {
-  const [listOfRestaurants, setListOfRestaurants] = useState(resData);
-  const [filteredRestaurants, setFilteredRestaurants] = useState(resData);
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
 
   // const arr = useState(resData);
@@ -17,13 +17,17 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9358189&lng=77.6178125&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
-    const json = data.json();
-    console.log(json);
+    const json = await data.json();
+    console.log(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+    setListOfRestaurants(json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setFilteredRestaurants(json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
   };
-
-  return (
+    console.log(filteredRestaurants);
+  return  listOfRestaurants.length === 0 ?(
+    <div>Loding....</div>
+  ):(
     <div className="body">
       <div className="filter">
         <div className="search">
@@ -35,7 +39,7 @@ const Body = () => {
           />
           <button
             onClick={() => {
-              const searchData = listOfRestaurants.filter((res)=>res.name.toLowerCase().includes(searchText.toLowerCase()))
+              const searchData = listOfRestaurants.filter((res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase()))
               setFilteredRestaurants(searchData)
             }}
           >
@@ -56,7 +60,7 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestaurants.map((restaurant) => (
-          <RestaurantCard key={restaurant.id} resList={restaurant} />
+          <RestaurantCard key={restaurant.info.id} resList={restaurant} />
         ))}
       </div>
     </div>

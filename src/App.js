@@ -11,6 +11,10 @@ import RestaurantsMenu from "./components/RestaurantsMenu";
 // const heading = React.createElement("h1" ,{id:"heading"} , "this is react element")
 
 
+//Chunking
+//lazy Loading
+//dyanamic bundling
+
 const Grocery = lazy(()=>import("./components/Grocery"))
 
 const AppLayout = () => {

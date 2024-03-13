@@ -4,13 +4,14 @@ import { useState } from "react";
 import ItemList from "./ItemList";
 
 // accordion body
-const RestaurantCategory = ({ data }) => {
+const RestaurantCategory = ({ data ,showItems ,setShowIndex}) => {
+    console.log(showItems,"showItems");
 
-    const [showItems , setShowItems] = useState(false)
+    // const [showItems , setShowItems] = useState(false)
 
     const handleClick = ()=>{
-        setShowItems(!showItems)
-        console.log("clicked");
+        
+        setShowIndex()
     }
 
   console.log(data, "data");

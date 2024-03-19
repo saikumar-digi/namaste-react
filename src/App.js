@@ -7,6 +7,8 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantsMenu from "./components/RestaurantsMenu";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 // import Grocery from "./components/Grocery";
 // const heading = React.createElement("h1" ,{id:"heading"} , "this is react element")
 
@@ -19,10 +21,12 @@ const Grocery = lazy(()=>import("./components/Grocery"))
 
 const AppLayout = () => {
   return (
+    <Provider store={appStore}>
     <div className="app">
-      <Header />
+    <Header />
     <Outlet/>
     </div>
+    </Provider>
   );
 };
 

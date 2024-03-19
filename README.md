@@ -21,3 +21,12 @@ Different dev and prod bundles
 # 2 types routing in web app
 - cline side Rounting
 - server side Routing
+
+//Redux-Toolkit
+
+* insatall @reduxjs/toolkit and react-redux
+- build store
+- provide store to hole app 
+- create slice
+- dispatch (action)
+- selector(read the data)

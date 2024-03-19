@@ -12,7 +12,6 @@ const Body = () => {
   const RestaurantCradPromoted = withPromotedLabel(RestaurantCard);
 
   const onlineStatus = useOnlineStatus();
-  console.log(onlineStatus, "onlineStatus");
 
   // const arr = useState(resData);
   // listOfRestaurants = arr[0]
@@ -45,7 +44,6 @@ const Body = () => {
       </h1>
     );
 
-    console.log(filteredRestaurants,"filteredRestaurants");
 
   return listOfRestaurants.length === 0 ? (
     <div>Loding....</div>

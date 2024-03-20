@@ -9,6 +9,7 @@ import Error from "./components/Error";
 import RestaurantsMenu from "./components/RestaurantsMenu";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 // import Grocery from "./components/Grocery";
 // const heading = React.createElement("h1" ,{id:"heading"} , "this is react element")
 
@@ -55,7 +56,11 @@ const appRouter = createBrowserRouter([
       {
         path:"/grocery",
         element:<Suspense fallback={<h1>Loding...</h1>} ><Grocery/></Suspense> 
-      }
+      },
+      {
+        path:"/cart",
+        element:<Cart/>
+      },
     ],
     errorElement:<Error/>
   },

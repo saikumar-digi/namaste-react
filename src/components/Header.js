@@ -10,6 +10,7 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
   const { loggedInUser } = useContext(userContext);
 
+  //subscribing th store using selector
   const cartItems = useSelector((state)=>state.cart.items)
   console.log(cartItems,"cartItems");
 
@@ -34,7 +35,9 @@ const Header = () => {
           <li className="px-4">
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li className="px-4">Cart ({cartItems.length}) Items</li>
+          <li className="px-4">
+            <Link to="/cart">Cart ({cartItems.length}) Items</Link>
+          </li>
           <li className="px-4 font-bold">{loggedInUser}</li>
           <button
             className="login-btn"

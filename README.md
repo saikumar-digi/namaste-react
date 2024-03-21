@@ -60,3 +60,12 @@ install  react-testing labrery
 *Header.test.ts
 *Header.spec.js
 *Header.spec.ts
+
+to read the Jsx
+*add @babel/preset-react
+-npm i -D @babel/preset-react
+need to config in bebal confic
+["@babel/preset-react" , {runtime:"automatic"}]
+
+need to insatll @testing-library/jest-dom
+

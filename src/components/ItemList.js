@@ -1,14 +1,17 @@
 import { useDispatch } from "react-redux";
 import { CDN_URL } from "../utils/constants";
-import { addItem } from "../utils/cartSlice";
+import { addItem, removeItem } from "../utils/cartSlice";
 
 const ItemList = ({ items }) => {
-  const dispatch =  useDispatch()
+  const dispatch = useDispatch();
 
-  const handleAddClick = (item) =>{
-      //dispatch an action
-     dispatch(addItem(item))
-  }
+  const handleAddClick = (item) => {
+    //dispatch an action
+    dispatch(addItem(item));
+  };
+  const handleRemoveClick = (item) => {
+    dispatch(removeItem(item));
+  };
 
   return (
     <div>
@@ -21,7 +24,6 @@ const ItemList = ({ items }) => {
             <div className="py-2">
               <span>{item.card.info.name}</span>
               <span>
-                {" "}
                 - ₹{" "}
                 {item.card.info.price
                   ? item.card.info.price / 100
@@ -32,11 +34,19 @@ const ItemList = ({ items }) => {
           </div>
           <div className="w-3/12 p-2">
             <div className="absolute">
-              <button className="px-2 py-1 mx-8 mt-[106px] rounded-lg bg-black text-white shadow-lg m-auto"
-            //dispatch an action
-              onClick={()=>handleAddClick(item)}
+              <button
+                className="px-2 py-1 mx-8 mt-[106px] rounded-lg bg-black text-white shadow-lg m-auto"
+                //dispatch an action
+                onClick={() => handleAddClick(item)}
               >
                 Add +
+              </button>
+              <button
+                className="px-2 py-1 mx-8 mt-[106px] rounded-lg bg-black text-white shadow-lg m-auto"
+                //dispatch an action
+                onClick={() => handleRemoveClick(item)}
+              >
+                Remove -
               </button>
             </div>
             <img src={CDN_URL + item.card.info.imageId} className="w-full" />

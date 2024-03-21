@@ -30,3 +30,26 @@ Different dev and prod bundles
 - create slice
 - dispatch (action)
 - selector(read the data)
+
+
+//Testing
+-Unit Testing
+-Integration Testing
+-End to End Testing
+
+//seting up testing
+install  react-testing labrery
+ -npm install --save-dev @testing-library/react
+ install jest
+ -npm install --save-dev jest
+ install bebel
+ -$ npm install --save-dev babel-jest @babel/core @babel/preset-env
+ config bebel js
+
+***configure Parcel Config file  to disable default babel transpilaction
+
+-jest configuration
+-npx just --init
+
+-If you're using Jest 28 or later, jest-environment-jsdom package now must be installed separately.
+*npm install --save-dev jest-environment-jsdom
